@@ -3,6 +3,8 @@ import 'package:iconsax/iconsax.dart';
 import 'package:recipe_app/Widgets/banner.dart';
 import 'package:recipe_app/Widgets/foodcard.dart';
 import 'package:recipe_app/Widgets/myIconButton.dart';
+import 'package:recipe_app/firebase_auth/firebase_auth_services.dart';
+import 'package:recipe_app/pages/authpage.dart';
 import 'package:recipe_app/pages/viewAll.dart';
 import 'package:recipe_app/utils/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -226,7 +228,15 @@ class _HomescreenState extends State<Homescreen> {
           ),
         ),
         Spacer(),
-        Myiconbutton(icon: Iconsax.notification, pressed: () {}),
+        Myiconbutton(icon: Iconsax.logout, pressed: () async{
+          await Auth().signOut();
+          if (context.mounted) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const Authpage()),
+            );
+          }
+        }),
       ],
     );
   }

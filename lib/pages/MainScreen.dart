@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/AppBar/appbar.dart';
 import 'package:recipe_app/pages/HomeScreen.dart';
 import 'package:recipe_app/pages/favoritePage.dart';
 import 'package:recipe_app/pages/mealPlanPage.dart';
@@ -9,6 +8,7 @@ import 'package:iconsax/iconsax.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
+
 
   @override
   State<MainScreen> createState() => _MainScreenState();
