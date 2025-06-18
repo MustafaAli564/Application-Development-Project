@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/pages/viewAll.dart';
 import 'package:recipe_app/utils/constants.dart';
 
 class MyBanner extends StatelessWidget {
@@ -35,9 +36,11 @@ class MyBanner extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 33),
                     backgroundColor: Colors.white,
-                    elevation: 0,
+                    elevation: 2,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Viewall()));
+                  },
                   child: Text(
                     "Explore",
                     style: TextStyle(

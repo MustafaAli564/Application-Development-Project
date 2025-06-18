@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+import 'package:recipe_app/Providers/favProvider.dart';
+import 'package:recipe_app/Providers/qty.dart';
 import 'package:recipe_app/pages/MainScreen.dart';
 import 'package:recipe_app/pages/authpage.dart';
 
@@ -14,10 +17,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MainScreen(),
-      // home: Authpage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_)=>Favprovider()),
+        ChangeNotifierProvider(create: (_)=>QtyProvider()),
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        // home: MainScreen(),
+        // home: Authpage(),
+        home: LoginPage(),
+      ),
     );
   }
 }
